@@ -1,4 +1,4 @@
-package com.github.antsdouble.mainhuautil;
+package com.antsdouble;
 
 /**
  * @author lyy
@@ -6,4 +6,5 @@ package com.github.antsdouble.mainhuautil;
  * @date 2019/10/8
  */
 public class AntsApplication {
+
 }

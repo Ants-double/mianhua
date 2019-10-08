@@ -1,4 +1,5 @@
-package com.github.antsdouble.mainhuautil.beans;
+package com.antsdouble.beans;
+
 
 import lombok.Getter;
 import lombok.Setter;
