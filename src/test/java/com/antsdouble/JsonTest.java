@@ -22,6 +22,7 @@ public class JsonTest {
         //测试空
         Person person = new Person();
         Object json = JSON.toJSONString(person, SerializerFeature.WriteNullStringAsEmpty);
+
         System.out.println(json);
         //测试对象
         Person person1 = new Person(1, "lyy");
@@ -29,8 +30,9 @@ public class JsonTest {
         // System.out.println(JSON.toJSONBytes(person1, SerializerFeature.config(0,)));
         //时间
         String dateJsonNoFeature = JSON.toJSONString(new Date());
-        System.out.println(dateJsonNoFeature);
+        System.out.println( "result"+ dateJsonNoFeature);
         String dateJson = JSON.toJSONString(new Date(), FastJsonUtil.FEATURES);
+        System.out.println(FastJsonUtil.isJson(dateJson));;
         System.out.println(dateJson);
         //list
         List<Person> list = new ArrayList<Person>();

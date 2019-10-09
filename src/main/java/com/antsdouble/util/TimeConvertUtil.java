@@ -15,7 +15,7 @@ import java.util.Date;
  * @Deprecated
  * @date 2019/10/9
  */
-public class TimeUtil {
+public class TimeConvertUtil {
     public static String getTimeStamp() {
         return Instant.now().toString();
     }
