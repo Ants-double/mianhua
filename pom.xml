@@ -6,7 +6,7 @@
 
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.01-RELEASE</version>
 
     <name>mainhua</name>
     <url>https://github.com/Ants-double/mianhua</url>
@@ -26,6 +26,7 @@
         <project.test.version>4.12</project.test.version>
 
         <logger.version>1.7.25</logger.version>
+        <commons.lang.version>3.9</commons.lang.version>
     </properties>
 
     <dependencyManagement>
@@ -57,6 +58,12 @@
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${logger.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -80,6 +87,10 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
     <licenses>
