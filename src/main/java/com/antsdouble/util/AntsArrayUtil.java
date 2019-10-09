@@ -11,6 +11,13 @@ import java.util.List;
  */
 public class AntsArrayUtil {
 
+    /**
+     * 功能描述 引用转值
+     * @author lyy
+     * @date 2019/10/9
+     * @param [doubles]
+     * @return double[]
+     */
     public static double[] convertValueType(Double[] doubles) {
         return ArrayUtils.toPrimitive(doubles);
     }
