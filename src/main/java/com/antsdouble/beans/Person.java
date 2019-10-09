@@ -6,7 +6,7 @@ import lombok.Setter;
 
 /**
  * @author lyy
- * @description
+ * @Deprecated test
  * @date 2019/10/8
  */
 public class Person {

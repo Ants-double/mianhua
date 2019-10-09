@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * @author lyy
- * @description
+ * @Deprecated
  * @date 2019/10/8
  */
 public class JsonTest {

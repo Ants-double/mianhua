@@ -4,7 +4,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  * @author lyy
- * @description
+ * @Deprecated test
  * @date 2019/10/8
  */
 public class FastJsonUtil {

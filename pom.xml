@@ -6,17 +6,25 @@
 
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASE</version>
+
+    <name>mainhua</name>
+    <url>https://github.com/Ants-double/mianhua</url>
+    <description>常用工具集成</description>
 
     <properties>
         <!-- Environment Settings -->
         <java.version>1.8</java.version>
+
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <chartset.UTF8>UTF-8</chartset.UTF8>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--        json-->
         <project.fastjson.version>1.2.56</project.fastjson.version>
         <lombok.version>1.18.8</lombok.version>
         <project.test.version>4.12</project.test.version>
+
     </properties>
 
     <dependencyManagement>
@@ -53,4 +61,118 @@
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>master</tag>
+        <url>git@github.com:Ants-double/mianhua.git</url>
+        <connection>scm:git:git@github.com:Ants-double/mianhua.git</connection>
+        <developerConnection>scm:git:git@github.com:Ants-double/mianhua.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>ants-double</name>
+            <email>ants_double@yeah.net</email>
+            <organization>ants-double</organization>
+        </developer>
+    </developers>
+    <profiles>
+        <profile>
+            <id>Releases</id>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <configuration>
+                            <encoding>${chartset.UTF8}</encoding>
+                            <aggregate>true</aggregate>
+                            <charset>${chartset.UTF8}</charset>
+                            <docencoding>${chartset.UTF8}</docencoding>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!--Compiler-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.0</version>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                            <fork>true</fork>
+                            <verbose>true</verbose>
+                            <encoding>UTF-8</encoding>
+                            <showWarnings>false</showWarnings>
+                        </configuration>
+                    </plugin>
+                    <!--Release-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.1</version>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>sonatype-nexus-snapshots</id>
+                    <name>Sonatype Nexus Snapshots</name>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>sonatype-nexus-staging</id>
+                    <name>Nexus Release Repository</name>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+        </profile>
+    </profiles>
 </project>
