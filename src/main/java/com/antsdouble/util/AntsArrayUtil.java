@@ -2,6 +2,9 @@ package com.antsdouble.util;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,39 +16,53 @@ public class AntsArrayUtil {
 
     /**
      * 功能描述 引用转值
-     * @author lyy
-     * @date 2019/10/9
+     *
      * @param [doubles]
      * @return double[]
+     * @author lyy
+     * @date 2019/10/9
      */
     public static double[] convertValueType(Double[] doubles) {
         return ArrayUtils.toPrimitive(doubles);
     }
 
-    public static Double[] convertArray(List<Double> data) {
+    public static float[] convertValueType(Float[] doubles) {
+        return ArrayUtils.toPrimitive(doubles);
+    }
 
-        Double[] temp = new Double[data.size()];
-        Double[] doubles = data.toArray(temp);
+    public static int[] convertValueType(Integer[] doubles) {
+        return ArrayUtils.toPrimitive(doubles);
+    }
+
+
+    public static <T> T[] convertArray(List<T> list, Class<T> type) {
+        T[] temp = (T[]) Array.newInstance(type, list.size());
+        T[] doubles = list.toArray(temp);
         return doubles;
     }
 
-    public static Double[] addListArrays(List<Double[]> list, int length) {
-        Double[] sumArray = new Double[length];
+    public static <T> List<T> arrayConvertList(T[] doubles) {
+        return new ArrayList<T>(Arrays.asList(doubles));
+    }
+
+    public static <T extends Number> T[] addListArrays(List<T[]> list, Class<T> type, int length) {
+        T[] sumArray = (T[]) Array.newInstance(type, length);
         for (int i = 0; i < length; i++) {
-            for (Double[] item : list) {
-                sumArray[i] += item[i];
+            for (T[] item : list) {
+                sumArray[i] = AntsMathUtil.add(sumArray[i], item[i]);
             }
         }
         return sumArray;
     }
 
-    public static Double[] averageListArrays(List<Double[]> list, int length) {
-        Double[] result = new Double[length];
-        Double[] doubles = addListArrays(list, length);
+    public static <T extends Number> T[] averageListArrays(List<T[]> list, Class<T> type, int length) {
+        T[] result = (T[]) Array.newInstance(type, length);
+        T[] doubles = addListArrays(list, type, length);
         for (int i = 0; i < length; i++) {
-            result[i] = doubles[i] / list.size();
+            result[i] = (T) AntsMathUtil.division(doubles[i], list.size());
         }
         return result;
     }
+
 
 }
