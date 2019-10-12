@@ -87,7 +87,7 @@ public class AntsMathUtil {
      * 功能描述
      * double 向量夹角公式 ，也可以用余玄定理
      *
-     * @param [xCenter, yCenter, firstX, firstY, secondX, secondY]
+     * @param xCenter, yCenter, firstX, firstY, secondX, secondY
      * @return double
      * @author lyy
      * @date 2019/10/12
