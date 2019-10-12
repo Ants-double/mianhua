@@ -18,5 +18,8 @@ public class MathTest {
         List<Double> doubles = Arrays.asList(new Double(275), new Double(1));
         Double average = AntsMathUtil.windAngleAverage(doubles);
         System.out.println(average);
+
+        double v = AntsMathUtil.threePointAngle(0, 0, 8,8 , 0, 8);
+        System.out.println(v);
     }
 }
