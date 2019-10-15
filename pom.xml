@@ -7,18 +7,7 @@
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
     <version>1.02-RELEASE</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
 
     <name>mainhua</name>
     <url>https://github.com/Ants-double/mianhua</url>
@@ -43,10 +32,12 @@
         <commons.collection4.version>4.4</commons.collection4.version>
         <commons.codec.version>1.13</commons.codec.version>
         <httprequest.version>6.0</httprequest.version>
+        <protostuff.version>1.6.2</protostuff.version>
 
     </properties>
 
     <dependencyManagement>
+
         <dependencies>
 
             <dependency>
@@ -103,6 +94,16 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${protostuff.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${protostuff.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -145,6 +146,14 @@
         <dependency>
             <groupId>com.github.kevinsawicki</groupId>
             <artifactId>http-request</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
         </dependency>
     </dependencies>
     <licenses>
@@ -261,4 +270,16 @@
 
         </profile>
     </profiles>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
