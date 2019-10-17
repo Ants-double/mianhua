@@ -12,6 +12,7 @@ import java.util.Arrays;
  * @date 2019/10/15
  */
 public class ProtoTest {
+
     @Test
     public void  test(){
         Person user = new Person(1, "lyy");

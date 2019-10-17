@@ -2,10 +2,7 @@ package com.antsdouble.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -103,4 +100,41 @@ public class TimeConvertUtil {
         return dateFormat.parse(strDate);
 
     }
+
+    public static Date localDateTimeConvertDate(LocalDateTime localDateTime) {
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDateTime.atZone(zone).toInstant();
+        return Date.from(instant);
+    }
+
+    public static Date localDateConvertDate(LocalDate localDate) {
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+        return Date.from(instant);
+    }
+
+    public static Date localTimeConvertDate(LocalTime localTime) {
+        LocalDate localDate = LocalDate.now();
+        LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDateTime.atZone(zone).toInstant();
+        return Date.from(instant);
+    }
+
+    public static LocalDateTime dateConvertLocalDateTime(Date date) {
+        Instant instant = date.toInstant();
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+        return localDateTime;
+    }
+
+    public static LocalDate dateConvertLocalDate(Date date) {
+        return dateConvertLocalDateTime(date).toLocalDate();
+
+    }
+
+    public static LocalTime dateConvertLocalTime(Date date) {
+        return dateConvertLocalDateTime(date).toLocalTime();
+    }
+
 }

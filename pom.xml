@@ -33,6 +33,7 @@
         <commons.codec.version>1.13</commons.codec.version>
         <httprequest.version>6.0</httprequest.version>
         <protostuff.version>1.6.2</protostuff.version>
+        <jjwt.version>0.9.1</jjwt.version>
 
     </properties>
 
@@ -104,6 +105,12 @@
                 <artifactId>protostuff-runtime</artifactId>
                 <version>${protostuff.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -154,6 +161,10 @@
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-runtime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
         </dependency>
     </dependencies>
     <licenses>
