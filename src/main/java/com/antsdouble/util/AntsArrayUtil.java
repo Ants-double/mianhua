@@ -3,9 +3,7 @@ package com.antsdouble.util;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author lyy
@@ -14,6 +12,64 @@ import java.util.List;
  */
 public class AntsArrayUtil {
 
+
+    public static boolean isEmpty(final Object array)
+    {
+        return array == null || Array.getLength(array) == 0;
+    }
+    public static int size(final Object array)
+    {
+        return array == null ? 0 : Array.getLength(array);
+    }
+    public static <T> T[] shallowCopy(final T[] array)
+    {
+        if (array == null)
+        {
+            return null;
+        }
+        return array.clone();
+    }
+    public static <T> T[] addAll(final T[] array1, final T[] array2)
+    {
+        if (array1 == null)
+        {
+            return shallowCopy(array2);
+        }
+        else if (array2 == null)
+        {
+            return shallowCopy(array1);
+        }
+        final T[] newArray = (T[]) Array.newInstance(array1.getClass().getComponentType(), array1.length + array2.length);
+        System.arraycopy(array1, 0, newArray, 0, array1.length);
+        System.arraycopy(array2, 0, newArray, array1.length, array2.length);
+        return newArray;
+    }
+
+    public static <T> T[] removeItem(T[] array, int pos)
+    {
+        int length = Array.getLength(array);
+        T[] dest = (T[]) Array.newInstance(array.getClass().getComponentType(), length - 1);
+
+        System.arraycopy(array, 0, dest, 0, pos);
+        System.arraycopy(array, pos + 1, dest, pos, length - pos - 1);
+        return dest;
+    }
+
+    public static <T> T[] getArraySubset(T[] array, int start, int end)
+    {
+        return Arrays.copyOfRange(array, start, end);
+    }
+    public static <T> T[] toArray(Class<T> classToCastTo, Collection c)
+    {
+        T[] array = (T[]) c.toArray((T[]) Array.newInstance(classToCastTo, c.size()));
+        Iterator i = c.iterator();
+        int idx = 0;
+        while (i.hasNext())
+        {
+            Array.set(array, idx++, i.next());
+        }
+        return array;
+    }
     /**
      * 功能描述 引用转值
      *
