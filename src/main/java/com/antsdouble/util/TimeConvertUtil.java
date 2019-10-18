@@ -17,6 +17,11 @@ public class TimeConvertUtil {
         return Instant.now().toString();
     }
 
+    public static long getLocalTimeStamp(LocalDateTime localDateTime) {
+        Instant localDateTime2Instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+        return localDateTime2Instant.toEpochMilli();
+
+    }
 
 //    public static  LocalDateTime changeLocalDateTime(LocalDateTime localDateTime){
 //        localDateTime.withMinute()

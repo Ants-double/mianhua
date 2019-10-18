@@ -35,6 +35,7 @@
         <protostuff.version>1.6.2</protostuff.version>
         <jjwt.version>0.9.1</jjwt.version>
         <dom4j.version>1.6.1</dom4j.version>
+        <jna.version>5.4.0</jna.version>
 
     </properties>
 
@@ -117,6 +118,11 @@
                 <artifactId>dom4j</artifactId>
                 <version>${dom4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -175,6 +181,10 @@
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
         </dependency>
     </dependencies>
     <licenses>
