@@ -1,9 +1,14 @@
 package com.antsdouble.util;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author lyy
@@ -34,6 +39,26 @@ public class FastJsonUtil {
         }
 
         return false;
+    }
+
+    public static String toJson(Object obj, boolean flag) {
+        return JSON.toJSONString(obj, flag);
+    }
+
+    public static <T> T toBean(String json, Class<T> c) {
+        return JSON.parseObject(json, c);
+    }
+
+    public static <T> List<T> toList(String json, TypeReference<List<T>> jsonTypeReference) {
+
+        return JSON.parseObject(json, jsonTypeReference);
+
+    }
+
+    public static <U, V> Map<U, V> toMap(String json) {
+        TypeReference<Map<U, V>> typeReference = new TypeReference<Map<U, V>>() {
+        };
+        return JSON.parseObject(json, typeReference);
     }
 
 }

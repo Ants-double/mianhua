@@ -19,6 +19,11 @@ public class JsonTest {
     @Test
     public void testJson() {
 
+
+
+
+
+
         //测试空
         Person person = new Person();
         Object json = JSON.toJSONString(person, SerializerFeature.WriteNullStringAsEmpty);
@@ -55,6 +60,7 @@ public class JsonTest {
 
         //反序
         System.out.println("反序");
+
         System.out.println(JSON.parse(dateJson));
         //list
         System.out.println(JSON.parse(jsonList));
@@ -65,6 +71,8 @@ public class JsonTest {
         // 把JSON文本parse成JSONObject
         Map<Integer, Person> map1 = JSON.parseObject(mapJson, new TypeReference<Map<Integer, Person>>() {
         });
+
+        Map<Integer, Person> integerPersonMap = FastJsonUtil.toMap(mapJson);
         System.out.println(map1);
         System.out.println(map1.get(1));
 

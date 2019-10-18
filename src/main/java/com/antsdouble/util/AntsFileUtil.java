@@ -3,9 +3,7 @@ package com.antsdouble.util;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -91,6 +89,41 @@ public class AntsFileUtil {
 
     public static void moveFileToDirectory(String origin, String target) throws IOException {
         FileUtils.moveFileToDirectory(new File(origin), new File(target), true);
+    }
+
+    public static String readTxtFileOneLine(String fileP) {
+        try {
+            //项目路径
+            String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource("")) + "../../";
+            filePath = filePath.replaceAll("file:/", "");
+            filePath = filePath.replaceAll("%20", " ");
+            filePath = filePath.trim() + fileP.trim();
+            if (filePath.indexOf(":") != 1) {
+                filePath = File.separator + filePath;
+            }
+            String encoding = "utf-8";
+            File file = new File(filePath);
+            //判断文件是否存在
+            if (file.isFile() && file.exists()) {
+                // 考虑到编码格式
+                InputStreamReader read = new InputStreamReader(new FileInputStream(file), encoding);
+                BufferedReader bufferedReader = new BufferedReader(read);
+                String lineTxt = null;
+                while ((lineTxt = bufferedReader.readLine()) != null) {
+                    return lineTxt;
+                }
+                read.close();
+            } else {
+                System.out.println("找不到指定的文件,查看此路径是否正确:" + filePath);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 
