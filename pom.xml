@@ -6,7 +6,7 @@
 
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
-    <version>1.03-RELEASE</version>
+    <version>1.04</version>
 
 
     <name>mainhua</name>
@@ -306,6 +306,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>

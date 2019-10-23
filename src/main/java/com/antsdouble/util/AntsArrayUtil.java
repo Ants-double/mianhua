@@ -120,5 +120,33 @@ public class AntsArrayUtil {
         return result;
     }
 
+    public static <T extends Number> T sum(T[] data)
+    {
+        Double sum = 0.0;
+        for (int i = 0; i < data.length; i++)
+        {
+            sum += data[i].doubleValue();
+        }
+
+        if(data[0].getClass().getTypeName().equals("java.lang.Integer"))
+        {
+            Integer result = (int)((double)sum);
+            return (T)result;
+        }
+
+        if(data[0].getClass().getTypeName().equals("java.lang.Double"))
+        {
+            Double result = sum.doubleValue();
+            return (T)result;
+        }
+
+        if(data[0].getClass().getTypeName().equals("java.lang.Float"))
+        {
+            Float result = sum.floatValue();
+            return (T)result;
+        }
+
+        return (T)sum;
+    }
 
 }
