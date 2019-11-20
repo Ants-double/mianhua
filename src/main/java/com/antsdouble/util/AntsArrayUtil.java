@@ -27,6 +27,7 @@ public class AntsArrayUtil {
         {
             return null;
         }
+
         return array.clone();
     }
     public static <T> T[] addAll(final T[] array1, final T[] array2)

@@ -136,7 +136,7 @@ public class AntsMapUtil {
                 Object propertyValue = null;
                 for (PropertyDescriptor pd : propertyDescriptors) {
                     propertyName = pd.getName();
-                    if (!propertyName.equals("class")) {
+                    if (!"class".equals(propertyName)) {
                         Method readMethod = pd.getReadMethod();
                         propertyValue = readMethod.invoke(javaBean, new Object[0]);
                         map.put(propertyName, propertyValue);
@@ -158,30 +158,26 @@ public class AntsMapUtil {
         }
 
         Object obj = beanClass.newInstance();
-
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field field : fields) {
             int mod = field.getModifiers();
             if (Modifier.isStatic(mod) || Modifier.isFinal(mod)) {
                 continue;
             }
-
             if (map.get(field.getName()) == null) {
                 continue;
             }
-
             field.setAccessible(true);
-            if (field.getType().getName().equals("java.lang.Long")) {
+            if ("java.lang.Long".equals(field.getType().getName())) {
                 field.set(obj, Long.valueOf(map.get(field.getName()) + ""));
-            } else if (field.getType().getName().equals("java.lang.Double")) {
+            } else if ("java.lang.Double".equals(field.getType().getName())) {
                 field.set(obj, Double.valueOf(map.get(field.getName()) + ""));
-            } else if (field.getType().getName().equals("java.lang.Integer")) {
+            } else if ("java.lang.Integer".equals(field.getType().getName())) {
                 field.set(obj, Integer.valueOf(map.get(field.getName()) + ""));
             } else {
                 field.set(obj, map.get(field.getName()));
             }
         }
-
         return obj;
     }
 
@@ -191,7 +187,7 @@ public class AntsMapUtil {
             return null;
         }
 
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>(16);
 
         Field[] declaredFields = obj.getClass().getDeclaredFields();
         for (Field field : declaredFields) {

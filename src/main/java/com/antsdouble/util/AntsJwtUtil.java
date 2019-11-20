@@ -80,11 +80,11 @@ public class AntsJwtUtil {
     public static String buildJWT(SignatureAlgorithm alg, Key key, String sub, String aud, String jti, String iss, Date nbf, Integer duration) {
         // jwt的签发时间
         LocalDateTime iat = LocalDateTime.now();
-        //DateTime iat = DateTime.now();
         // jwt的过期时间，这个过期时间必须要大于签发时间
         LocalDateTime exp = null;
-        if (duration != null)
+        if (duration != null) {
             exp = (nbf == null ? iat.plusSeconds(duration) : TimeConvertUtil.dateConvertLocalDateTime(nbf).plusSeconds(duration));
+        }
 
         // 获取JWT字符串
         String compact = Jwts.builder()

@@ -10,26 +10,26 @@ import lombok.Setter;
  * @date 2019/10/8
  */
 public class Person {
-    @Getter
-    @Setter
-    private long id;
-    @Getter
-    @Setter
-    private String name;
+	@Getter
+	@Setter
+	private long id;
+	@Getter
+	@Setter
+	private String name;
 
-    public Person() {
-    }
+	public Person() {
+	}
 
-    public Person(long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	public Person(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Person{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
+	}
 }
