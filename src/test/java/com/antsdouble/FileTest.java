@@ -18,17 +18,17 @@ public class FileTest {
 
     @Test
     public void testFile(){
-        try {
-            List<String> readFile = AntsFileUtil.readFileForList("F:\\mianhua\\src\\main\\resources\\testfile.txt");
-            System.out.println(readFile);
-            System.out.println(Arrays.toString(AntsArrayUtil.convertArray(readFile,String.class)));
-            String readString=AntsFileUtil.readFileForString("F:\\mianhua\\src\\main\\resources\\testfile.txt");
-            System.out.println(readString);
-          AntsFileUtil.writeStringToFile("./target/01.txt",readString);
-            System.out.println(readString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            List<String> readFile = AntsFileUtil.readFileForList("F:\\mianhua\\src\\main\\resources\\testfile.txt");
+//            System.out.println(readFile);
+//            System.out.println(Arrays.toString(AntsArrayUtil.convertArray(readFile,String.class)));
+//            String readString=AntsFileUtil.readFileForString("F:\\mianhua\\src\\main\\resources\\testfile.txt");
+//            System.out.println(readString);
+//          AntsFileUtil.writeStringToFile("./target/01.txt",readString);
+//            System.out.println(readString);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }
