@@ -6,7 +6,7 @@
 
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
-    <version>1.06</version>
+    <version>1.07</version>
 
 
     <name>mainhua</name>
@@ -25,7 +25,6 @@
         <project.fastjson.version>1.2.70</project.fastjson.version>
         <lombok.version>1.18.12</lombok.version>
         <project.test.version>4.12</project.test.version>
-
         <logger.version>1.7.25</logger.version>
         <commons.lang.version>3.10</commons.lang.version>
         <commons.io.version>2.7</commons.io.version>
@@ -254,7 +253,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <phase>verify</phase>

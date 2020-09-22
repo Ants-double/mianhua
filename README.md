@@ -8,7 +8,7 @@ cotton
   <dependency>
       <groupId>com.github.ants-double</groupId>
       <artifactId>mainhua</artifactId>
-      <version>1.03-RELEASE</version>
+      <version>1.06</version>
   </dependency>
   
   ```
