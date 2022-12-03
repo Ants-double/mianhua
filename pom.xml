@@ -6,7 +6,7 @@
 
     <groupId>com.github.ants-double</groupId>
     <artifactId>mainhua</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <build>
         <plugins>
             <plugin>
@@ -36,17 +36,18 @@
         <!--        json-->
         <project.fastjson.version>2.0.20</project.fastjson.version>
         <lombok.version>1.18.12</lombok.version>
-        <project.test.version>4.12</project.test.version>
+        <project.test.version>4.13.2</project.test.version>
         <logger.version>2.0.5</logger.version>
         <commons.lang.version>3.10</commons.lang.version>
         <commons.io.version>2.7</commons.io.version>
         <commons.collection4.version>4.4</commons.collection4.version>
         <commons.codec.version>1.14</commons.codec.version>
-        <httprequest.version>6.0</httprequest.version>
+<!--        <httprequest.version>6.0</httprequest.version>-->
         <protostuff.version>1.7.2</protostuff.version>
         <jjwt.version>0.9.1</jjwt.version>
         <dom4j.version>2.1.3</dom4j.version>
         <jna.version>5.5.0</jna.version>
+        <apach.httpcomponents>4.5.13</apach.httpcomponents>
 
     </properties>
 
@@ -70,11 +71,17 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.kevinsawicki</groupId>-->
+<!--                <artifactId>http-request</artifactId>-->
+<!--                <version>${httprequest.version}</version>-->
+<!--            </dependency>-->
             <dependency>
-                <groupId>com.github.kevinsawicki</groupId>
-                <artifactId>http-request</artifactId>
-                <version>${httprequest.version}</version>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apach.httpcomponents}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -174,9 +181,13 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.kevinsawicki</groupId>-->
+<!--            <artifactId>http-request</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>com.github.kevinsawicki</groupId>
-            <artifactId>http-request</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
         <dependency>
             <groupId>io.protostuff</groupId>
